@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link href="58624bba6f9a865ff785e54bad2a962f-84c43e7f5984ca7fc54014ec8acd75e8-RequestReducedStyle.css" rel="Stylesheet" type="text/css" />
+        <title>Office 2010: Retrieving Cell Values in Excel 2010 Workbooks</title>        
+        <meta name="description" content="Learn how to use the strongly-typed classes in the Open XML SDK 2.0 to retrieve the value of a cell in an Excel 2007 or Excel 2010 document, without loading the document into Microsoft Excel. This sample accompanies the article Retrieving the Values of Cells in Excel 2010 Workboo" />
+        
+        <script src="offline.js" type="text/javascript" ></script>
+        <script type="text/javascript">
+            function initializePage() {
+                var scriptFound = false;
+                var otherTabClass = 'otherTab';
+                var hiddenPreClass = 'hidden';
+                
+                Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+                    var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+                    var labelElems = Galleries.findElem(titleElem, 'span');
+                    if (labelElems.length == 0) {
+                        labelElems = titleElem;
+                    }
+                    var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+                    var pres = Galleries.findElem(scriptBlock, 'pre');
+                    if (languageSpans.length > 0 && pres.length > 1) {
+                        Galleries.iterateElem(labelElems, function(index, elem) {
+                            var codePre = pres[index];
+                            var labelSpan = elem;
+                            var languageSpan = languageSpans[index];
+                            
+                            elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\r\n');
+                            
+                            codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                            languageSpan.parentNode.removeChild(languageSpan);
+                        });
+
+                        pres = Galleries.findElem(scriptBlock, 'pre');
+                        Galleries.iterateElem(labelElems, function(index, elem) {
+                            var codePre = pres[index];
+                            var labelSpan = elem;
+                            if (index == 0) {
+                                scriptBlock.activeTab = 0;
+                            }
+                            else {
+                                labelSpan.className += otherTabClass;
+                                codePre.className += hiddenPreClass;
+                            }
+                            Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                                var activeTab = scriptBlock.activeTab;
+                                labelElems[activeTab].className += otherTabClass;
+                                pres[activeTab].className += hiddenPreClass;
+
+                                codePre.className = codePre.className.replace(hiddenPreClass, '');
+                                labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                                scriptBlock.activeTab = index;
+
+                                if (window.parent.Galleries) {
+                                    window.parent.Galleries.resizeDesc();
+                                }
+                            });
+                        });
+
+                        var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                        if (preview.length == 0) {
+                            preview.push(pres[pres.length - 1]);
+                        }
+                        Galleries.iterateElem(preview, function(index, elem) {
+                            elem.parentNode.removeChild(elem);
+                        });
+
+                        if (window.clipboardData && clipboardData.setData) {
+                            var copyLink = document.createElement('a');
+                            copyLink.href = 'javascript:void(0);';
+                            copyLink.className = 'copyCode';
+                            copyLink.innerHTML = 'Copy Code';
+                            Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                                clipboardData.setData("Text", labelElems[scriptBlock.activeTab].code);
+                                return false;
+                            });
+                            scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                        }
+                    }
+                });
+
+                if ((window.parent) && (window.parent.Galleries)) {
+                    window.parent.Galleries.resizeDesc();
+                }
+
+            }
+
+            Galleries.onWindowLoad(function(){
+                initializePage();
+            });
+
+        </script>
+                <style type="text/css">
+                    body { 
+                        font-family: 'Segoe UI','Lucida Grande',Verdana,Arial,Helvetica,sans-serif;
+                    }
+                </style>
+        <base target="_parent" />
+    </head>
+    <body>
+        <div id="longDesc">
+            
+<h1>Introduction</h1>
+<p>Learn how to use the strongly-typed classes in the Open XML SDK 2.0 to retrieve the value of a cell in an Excel 2007 or Excel 2010 document, without loading the document into Microsoft Excel. This sample accompanies the article
+<a href="http://msdn.microsoft.com/en-us/library/ff921204.aspx">Retrieving the Values of Cells in Excel 2010 Workbooks by Using the Open XML SDK 2.0</a> in the MSDN Library.</p>
+<p><span style="font-size:20px; font-weight:bold">Description</span></p>
+<p>The Open XML file formats enable you to retrieve information about a particular cell in an Excel workbook. The Open XML SDK 2.0 adds strongly-typed classes to simplify access to the Open XML file formats. The SDK simplifies the tasks of retrieving information
+ about the workbook, and finding the appropriate XML content.</p>
+<p>This code sample shows how to the use the SDK to perform this task, and includes the code that is required to retrieve the value of a specified cell in a specified sheet in an Excel 2007 or Excel 2010 workbook.</p>
+<p>To use the code sample, you must install the Open XML SDK 2.0. The sample also uses code that is included as part of a set of code examples for the Open XML SDK 2.0. The associated article includes a link to the full set of code examples, although you can
+ use the sample without downloading and installing those examples.</p>
+<p>The sample application retrieves the value from several cells in a document that you supply, calling the
+<strong>XLGetCellValue </strong>method in the sample to do the work. This method returns the value of the specified cell as a string&mdash;the calling code must interpret the string value.</p>
+
+        </div>
+    </body>
+</html>

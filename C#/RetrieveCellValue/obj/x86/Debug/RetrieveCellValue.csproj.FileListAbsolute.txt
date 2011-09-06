@@ -1,0 +1,5 @@
+C:\Users\keng\Documents\My Dropbox\Office 2010 VHTs\VHT E - XL Retrieve Cell Value\Demo\CS\RetrieveCellValue\RetrieveCellValue\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\keng\Documents\My Dropbox\Office 2010 VHTs\VHT E - XL Retrieve Cell Value\Demo\CS\RetrieveCellValue\RetrieveCellValue\bin\Debug\RetrieveCellValue.exe
+C:\Users\keng\Documents\My Dropbox\Office 2010 VHTs\VHT E - XL Retrieve Cell Value\Demo\CS\RetrieveCellValue\RetrieveCellValue\bin\Debug\RetrieveCellValue.pdb
+C:\Users\keng\Documents\My Dropbox\Office 2010 VHTs\VHT E - XL Retrieve Cell Value\Demo\CS\RetrieveCellValue\RetrieveCellValue\obj\x86\Debug\RetrieveCellValue.exe
+C:\Users\keng\Documents\My Dropbox\Office 2010 VHTs\VHT E - XL Retrieve Cell Value\Demo\CS\RetrieveCellValue\RetrieveCellValue\obj\x86\Debug\RetrieveCellValue.pdb
